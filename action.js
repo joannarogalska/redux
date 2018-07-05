@@ -27,26 +27,28 @@ function editComment(id, text) {
     }
 }
 
-function thumbUpComment(id) {
+function thumbUpComment(id, vote) {
     return {
         type: THUMB_UP_COMMENT,
-        id: uuid.v4()
+        id: uuid.v4(),
+        vote: vote
     }
 }
 
-function thumbDownComment(id) {
+function thumbDownComment(id, vote) {
     return {
         type: THUMB_DOWN_COMMENT,
-        id: uuid.v4()
+        id: uuid.v4(),
+        vote: vote
     }
 }
 
 //Bounde action creator
-const boundAddComment = text => dispatch(addComment(text));
-const boundRemoveComment = id => dispatch(removeComment(id));
-const boundEditComment = (id, text) => dispatch(editComment(id, text));
-const boundThumbUpComment = id => dispatch(thumbUpComment(id));
-const boundThumbDownComment = id => dispatch(thumbDownComment(id));
+export const boundAddComment = text => dispatch(addComment(text));
+export const boundRemoveComment = id => dispatch(removeComment(id));
+export const boundEditComment = (id, text) => dispatch(editComment(id, text));
+export const boundThumbUpComment = id => dispatch(thumbUpComment(id));
+export const boundThumbDownComment = id => dispatch(thumbDownComment(id));
 
 //Examples
 
